@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container text-center mt-3" id="heading">
+        <h2>Resume Generator</h2>
+    </div>
+    <div class="container" id="cv-form">
+       <div class="row">
+           <div class="col-md-6 mt-4">
+                <h4>Personal Information</h4>
+                <div class="form-group">
+                    <label>Enter First Name: </label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="fname"
+                    id="fname" 
+                    placeholder="First Name"/>
+
+                    <label>Enter Middle Name: </label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="mname"
+                    id="mname" 
+                    placeholder="Middle Name"/>
+
+                    <label>Enter Last Name: </label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="lname" 
+                    id="lname"
+                    placeholder="Last Name"/>
+
+                    <label>Select Profile Picture:</label>
+                    <input
+                    class="form-control"
+                    type="file"
+                    id="imgfield"
+                    placeholder="Image"/>
+                    
+                    <div id="addPhone">
+                    <label>Enter Contact Number: </label>
+                    <input 
+                    class="form-control contact" 
+                    type="number" 
+                    name="contact"
+                    id="phone" 
+                    placeholder="Contact Number"/>
+                    <div id="contactbtn">
+                        <button class="btn btn-primary text-center mt-2"
+                         onclick="addContact()">Add Alternate Number</button>
+                    </div>
+                    </div>
+                    
+                    <label>Enter Address</label>
+                    <textarea class="form-control"
+                    rows="4"
+                    cols="10"
+                    name="address"
+                    id="address"
+                    placeholder="Address"></textarea>
+
+                    <label>Enter Email-Id</label>
+                    <input 
+                    class="form-control" 
+                    type="email" 
+                    name="email"
+                    id="email" 
+                    placeholder="Email-Id"/>
+
+                    <label>Enter Facebook-Id</label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="fbid"
+                    id="fbid" 
+                    placeholder="Facebook-Id"/>
+
+                    <label>Enter LinkedIn-Id</label>
+                    <input 
+                    class="form-control" 
+                    type="text" 
+                    name="lnid"
+                    id="lnid" 
+                    placeholder="LinkedIn-Id"/>
+
+
+                </div>
+           </div>
+           <div class="col-md-6 mt-4">
+                <h4>Professional Experience Information</h4>
+
+                <label>Your Objective</label>
+                    <textarea class="form-control"
+                    rows="2"
+                    cols="10"
+                    name="objective"
+                    id="objective"
+                    placeholder="Objective"></textarea>
+
+                <div id="experience">
+                <label>Your Experience/Projects You Worked On </label>
+                    <textarea class="form-control exp"
+                    rows="2"
+                    cols="10"
+                    name="experience"
+                    placeholder="Experience"></textarea>
+                <div class="container text-center">
+                    <button onclick="addExperience()" 
+                    class="btn btn-primary mt-2"
+                    id="expbtn">Add More</button>
+                   </div>
+                   </div> 
+
+
+                 <div id="qualification">  
+                <label>Your Qualifications/Certifications</label>
+                    <textarea class="form-control certi"
+                    rows="2"
+                    cols="10"
+                    name="qualification"
+                    placeholder="Qualifications/Certifications"></textarea>
+                <div class="container text-center">
+                    <button onclick="addQualification()" 
+                    class="btn btn-primary mt-2"
+                    id="certibtn">Add More</button>
+                </div>
+                </div>
+
+           </div>
+       </div>
+       <div class="container text-center">
+            <button onclick="generateCV()" class="btn btn-success mb-4 mt-2">Create Resume</button>
+       </div>
+    </div>
+
+    
+
+
+
+
+
+    <div class="container mt-4" id="cv-template">
+        <div class="row">
+            <div class="col-md-4 text-center background py-5">
+                <img class="img-fluid" 
+                src="img/profile.png" 
+                id="imgtemplate"
+                height="100" 
+                width="100">
+
+            <div class="container">
+                <b id="fnameT">fname</b>
+                
+                <b id="mnameT">mname</b>
+                
+                <b id="lnameT">lname</b>
+                <br><br>
+                <b>Contact No.:</b><br>
+                <p id="contactT">00000</p>
+                <b>Email-Id</b><br>
+                <p id="emailT">email</p>
+                <b>Address</b><br>
+                <p id="addressT">Address</p>
+                <b>Facebook ID</b><br>
+                <a id="fbidT" href="#">Facebook</a><br>
+                <b>LinkedIn</b><br>
+                <a id="linkedinidT" href="#">LinkedIN</a>
+            </div>
+            </div>
+
+            
+            <div class="col-md-8 ">
+                <h1 class="text-center" 
+                style="font-weight: 900;"
+                id="nameT">
+                Satish Suryakant Bhutawale</h1>
+
+                <!-- Objective Card -->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <b>Objective</b>
+                    </div>
+                    <div class="card-body">
+                        <p id="objectiveT">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est reprehenderit debitis, consequatur voluptas, quae dolores nemo vitae cumque aliquam, tempore aliquid laudantium nulla quos! Asperiores quas consequatur alias aperiam veniam.</p>
+                    </div>
+                    
+                </div>
+
+                <!-- Work Experience Card -->
+
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <b>Work Experience</b>
+                    </div>
+                    <div class="card-body">
+                        <ul id="expT">
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, provident!
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, provident!
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, provident!
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                <!-- Qualification -->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <b>Qualification/Certification</b>
+                    </div>
+                    <div class="card-body">
+                        <ul id="qualiT">
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, provident!
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, provident!
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, provident!
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+                <div class="container text-center mt-4">
+                    <button onclick="printCV()" class="btn btn-danger">Print</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

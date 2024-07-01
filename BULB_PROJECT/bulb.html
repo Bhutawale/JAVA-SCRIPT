@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb On-Off Project</title>
+</head>
+<body>
+    <h2>Bulb JS Project</h2>
+    <button onclick="lighton()">Light ON</button>
+    <button onclick="lightoff()">Light OFF</button>
+    <button id="butt" onclick="onoff()">ON</button>
+    <div class="container">
+        <img onclick="onoff()" id="bulb" src="img/lightbulb.png" height="300" width="300">
+    </div>
+    <script>
+        let img=document.getElementById("bulb");
+        let butt=document.getElementById("butt");   
+        function lighton()
+        {
+            img.setAttribute("src","img/lightbulb (1).png")
+
+        }
+
+        let lightoff=()=>
+        {
+            img.setAttribute("src","img/lightbulb.png")
+        }
+
+        function onoff()
+        {
+            if(img.getAttribute("src")=="img/lightbulb.png")
+            {
+                img.setAttribute("src","img/lightbulb (1).png")
+                butt.innerHTML="OFF";
+            }
+            else
+            {
+                img.setAttribute("src","img/lightbulb.png")
+                butt.innerHTML="ON"
+            }
+        }
+    </script>
+</body>
+</html>
